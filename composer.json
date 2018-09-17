@@ -1,0 +1,25 @@
+{
+    "name": "aalfiann/json-class-php",
+    "description": "A class for handle json in a better way.",
+    "keywords": ["json","class"],
+    "authors": [
+        {
+            "name": "M ABD AZIZ ALFIAN",
+            "email": "aalfiann@gmail.com",
+            "homepage": "https://github.com/aalfiann",
+            "role": "Developer"
+        }
+    ],
+    "type": "library",
+    "require": {
+        "php": ">=5.4"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "aalfiann\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
