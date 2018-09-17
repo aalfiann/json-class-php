@@ -55,7 +55,7 @@ use \aalfiann\JSON;
 $data = '{"result":"just make a test!","data":{"id":"1","user":"your name","email":"your_email@gmail.com","website":"http://yourdomain.com","non-utf8":"\u00d8\u00a7\u00d9\u0084\u00d8\u00b3\u00d9\u0084\u00d8\u00a7\u00d9\u0085 \u00d8\u00b9\u00d9\u0084\u00db\u008c\u00da\u00a9\u00d9\u0085 \u00d9\u0088\u00d8\u00b1\u00d8\u00ad\u00d9\u0085\u00d8\u00a9 \u00d8\u00a7\u00d9\u0084\u00d9\u0084\u00d9\u0087 \u00d9\u0088\u00d8\u00a8\u00d8\u00b1\u00da\u00a9\u00d8\u00a7\u00d8\u00aa\u00d9\u0087!"},"logger":{"timestamp":"2018-09-17 13:53:12","uniqid":"5b9f95a812c0f"}}';
 
 $json = new JSON;
-echo var_dump($json->decode($data,JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
+echo var_dump($json->decode($data,true));
 ```
 
 
