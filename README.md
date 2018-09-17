@@ -25,7 +25,7 @@ composer require "aalfiann/json-class-php:^1.0"
 composer update
 ```
 
-## Simple Usage
+## Usage
 
 ### Encode
 ```php
