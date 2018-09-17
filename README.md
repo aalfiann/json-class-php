@@ -93,6 +93,7 @@ echo $json->withSanitizer()->withLog()->encode(['user'=>'yourname'],JSON_PRETTY_
 ## Main Function
 - **encode($data,$options=0,$depth=512)** encode array or string to json format.
 - **decode($json,$assoc=false,$depth=512,$options=0)** decode json string to `stdClass/array`.
+- **isValid($json=null)** to determine json string is valid or not.
 
 ## Helper Function
 - **convertToUTF8($string)** convert string to valid UTF8 chars.
