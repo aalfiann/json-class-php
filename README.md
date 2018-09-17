@@ -43,6 +43,7 @@ $data = [
     ]
 ];
 
+header('Content-Type: application/json');
 $json = new JSON;
 echo $json->encode($data,JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES);
 ```
@@ -65,6 +66,7 @@ You can easily debug with set property `debug` to `true`.
 require_once ('vendor/autoload.php');
 use \aalfiann\JSON;
 
+header('Content-Type: application/json');
 $json = new JSON;
 $json->debug=true;
 echo $json->encode($data,JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES);
@@ -76,6 +78,7 @@ echo $json->encode($data,JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES);
 require_once ('vendor/autoload.php');
 use \aalfiann\JSON;
 
+header('Content-Type: application/json');
 $json = new JSON;
 echo $json->withSanitizer()->withLog()->encode(['user'=>'yourname'],JSON_PRETTY_PRINT);
 ```
