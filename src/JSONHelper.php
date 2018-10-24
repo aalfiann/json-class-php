@@ -248,4 +248,27 @@ namespace aalfiann;
 			}
 			return $data;
 		}
+
+		/**
+		 * Concatenate json data
+		 * Example: https://3v4l.org/fXjhd
+		 * 
+		 * @param data is the json string or array value
+		 * @param escape if set to false then json data will not escaped. Default is true.
+		 * @param options is to set the options of json_encode (for data array only). Ex: JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE
+		 * @param depth is to set the recursion depth. Default is 512.
+		 * @return string
+		 */
+		public function concatenate($data,$escape=true,$options=0,$depth=512){
+			if(!empty($data)){
+				if(is_array($data)){
+					if($escape) return addcslashes(json_encode($data,$options,$depth),"\"'\n");
+					return json_encode($data,$options,$depth);
+				}
+				if($escape) return addcslashes($data,"\"'\n");
+				return $data;
+			}
+			if($escape) return '';
+			return '""';
+		}
     }
