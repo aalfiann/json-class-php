@@ -192,6 +192,33 @@ namespace aalfiann;
 			}
 			return $string;
 		}
+
+		/**
+		 * Most common fixed hidden control char in json string which made json decode fails.
+		 * 
+		 * @param string is the string or json string
+		 * @return string
+		 */
+		public function fixControlChar($string){
+			//Sanitize hidden control chars
+			for ($i = 0; $i <= 9; ++$i) { 
+				$string = str_replace(chr($i), "", $string); 
+			}
+			for ($i = 11; $i <= 12; ++$i) { 
+				$string = str_replace(chr($i), "", $string); 
+			}
+			for ($i = 14; $i <= 31; ++$i) { 
+				$string = str_replace(chr($i), "", $string); 
+			}
+			$string = str_replace(chr(127), "", $string);
+			//Handle Byte Order Mark (BOM)
+			if (0 === strpos(bin2hex($string), 'efbbbf')) {
+				$string = substr($string, 3);
+			}
+			//Handle newline char
+			$string = preg_replace("/[\r\n]+/", "\\n", $string);
+			return $string;
+		}
         
         /**
          * Modify json data string in some field array to be nice json data structure

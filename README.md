@@ -1,6 +1,6 @@
 # JSON Class PHP
 
-[![Version](https://img.shields.io/badge/stable-1.1.0-green.svg)](https://github.com/aalfiann/json-class-php)
+[![Version](https://img.shields.io/badge/stable-1.2.0-green.svg)](https://github.com/aalfiann/json-class-php)
 [![Total Downloads](https://poser.pugx.org/aalfiann/json-class-php/downloads)](https://packagist.org/packages/aalfiann/json-class-php)
 [![License](https://poser.pugx.org/aalfiann/json-class-php/license)](https://github.com/aalfiann/json-class-php/blob/HEAD/LICENSE.md)
 
@@ -93,5 +93,6 @@ echo $json->withSanitizer()->withLog()->encode(['user'=>'yourname'],JSON_PRETTY_
 - **debug_encode($string,$options=0,$depth=512)** debugger to test json encode.
 - **debug_decode($json,$assoc=false,$depth=512,$options=0)** debugger to test json decode.
 - **errorMessage($jsonlasterror,$content)** case error message about json.
+- **fixControlChar($string)** Most common fixed hidden control char in json string which made json decode fails.
 - **modifyJsonStringInArray($data,$jsonfield,$setnewfield="")** modify json data string in some field array to be nice json data structure.
 - **concatenate($data,$escape=true,$options=0,$depth=512)** concatenate json data
