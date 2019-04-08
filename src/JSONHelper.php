@@ -323,7 +323,7 @@ namespace aalfiann;
 		 * @param json is the json string
 		 * @return string
 		 */
-		public static function minify($json){
+		public function minify($json){
 			$tokenizer = "/\"|(\/\*)|(\*\/)|(\/\/)|\n|\r/";
 			$in_string = false;
 			$in_multiline_comment = false;

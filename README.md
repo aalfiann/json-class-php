@@ -1,6 +1,6 @@
 # JSON Class PHP
 
-[![Version](https://img.shields.io/badge/stable-1.3.0-green.svg)](https://github.com/aalfiann/json-class-php)
+[![Version](https://img.shields.io/badge/stable-1.3.1-green.svg)](https://github.com/aalfiann/json-class-php)
 [![Total Downloads](https://poser.pugx.org/aalfiann/json-class-php/downloads)](https://packagist.org/packages/aalfiann/json-class-php)
 [![License](https://poser.pugx.org/aalfiann/json-class-php/license)](https://github.com/aalfiann/json-class-php/blob/HEAD/LICENSE.md)
 
