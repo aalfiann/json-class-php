@@ -15,8 +15,19 @@ namespace aalfiann;
      */
 	class JSON extends JSONHelper implements JSONInterface {
 
-        var $withlog=false,$sanitize=false,$ansii=false,$debug=false,$makesimple=false;
+        var $withlog=false,$sanitize=false,$ansii=false,$debug=false,$makesimple=false,$trim=false;
 
+        /**
+         * Trim to remove whitespace or any character consider to blank value
+         * 
+         * @param trim if set to true then data value will be trimmed. Default is true.
+         * @return this for chaining purpose
+         */
+        public function withTrim($trim=true){
+            $this->trim = $trim;
+            return $this;
+        }
+        
         /**
          * Sanitize to prevent json encode
          * 
@@ -83,6 +94,7 @@ namespace aalfiann;
 		 */
         public function encode($data,$options=0,$depth=512){
             if($this->debug) return $this->debug_encode($data,$options,$depth);
+            if($this->trim) $data = $this->trimValue($data);
 			if($this->withlog && is_array($data)) $data['logger'] = ['timestamp' => date('Y-m-d H:i:s', time()),'uniqid'=>uniqid()];
             if ($this->sanitize) {
                 return json_encode((($this->ansii)?$this->convertToUTF8Ansii($data):$this->convertToUTF8($data)),$options,$depth);
@@ -102,6 +114,10 @@ namespace aalfiann;
 		 */
 		public function decode($json,$assoc=false,$depth=512,$options=0){
             if($this->debug) return $this->debug_decode($json,$assoc,$depth,$options);
+            if($this->trim) {
+                $json = json_encode($this->trimValue(json_decode($json,1,$depth)));
+                return json_decode($json,$assoc,$depth,$options);
+            }
 			return json_decode($json,$assoc,$depth,$options);
 		}
 

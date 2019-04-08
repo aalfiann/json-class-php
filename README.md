@@ -1,6 +1,6 @@
 # JSON Class PHP
 
-[![Version](https://img.shields.io/badge/stable-1.2.0-green.svg)](https://github.com/aalfiann/json-class-php)
+[![Version](https://img.shields.io/badge/stable-1.3.0-green.svg)](https://github.com/aalfiann/json-class-php)
 [![Total Downloads](https://poser.pugx.org/aalfiann/json-class-php/downloads)](https://packagist.org/packages/aalfiann/json-class-php)
 [![License](https://poser.pugx.org/aalfiann/json-class-php/license)](https://github.com/aalfiann/json-class-php/blob/HEAD/LICENSE.md)
 
@@ -73,10 +73,11 @@ echo $json->withSanitizer()->withLog()->encode(['user'=>'yourname'],JSON_PRETTY_
 ```
 
 ## Properties
--  `$withlog=false,$sanitize=false,$ansii=false,$debug=false,$makesimple=false;`
+-  `$withlog=false,$sanitize=false,$ansii=false,$debug=false,$makesimple=false,$trim=false;`
 
 ## Chain Function
 - **withSanitizer($sanitize=true)** this will sanitize your data array before execute json_encode.  
+- **withTrim($trim=true)** this will trimmed your data array or string before execute json_encode or json_decode.  
 - **withLog($withlog=true)** this will append the logger data into your json.
 - **setAnsii($ansii=true)** this will make sanitizer works to handle ANSII chars.
 - **setDebug($debug=true)** this is for debugging purpose.
@@ -90,9 +91,11 @@ echo $json->withSanitizer()->withLog()->encode(['user'=>'yourname'],JSON_PRETTY_
 ## Helper Function
 - **convertToUTF8($string)** convert string to valid UTF8 chars.
 - **convertToUTF8Ansii($string)** convert string to valid UTF8 chars (support ANSII chars).
+- **trimValue($string)** trim the data array or string to strip the whitespace or any characters consider to blank value.
 - **debug_encode($string,$options=0,$depth=512)** debugger to test json encode.
 - **debug_decode($json,$assoc=false,$depth=512,$options=0)** debugger to test json decode.
 - **errorMessage($jsonlasterror,$content)** case error message about json.
 - **fixControlChar($string)** Most common fixed hidden control char in json string which made json decode fails.
 - **modifyJsonStringInArray($data,$jsonfield,$setnewfield="")** modify json data string in some field array to be nice json data structure.
 - **concatenate($data,$escape=true,$options=0,$depth=512)** concatenate json data
+- **minify($json)** Minify the json string
